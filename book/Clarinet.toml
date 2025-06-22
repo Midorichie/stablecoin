@@ -1,9 +1,43 @@
+# File: Clarinet.toml
 [project]
 name = "stablecoin"
-clarity_version = "1.0.0"
+description = "A collateralized stablecoin with governance on Stacks"
+version = "2.0.0"
+clarity_version = 1
 
+# Main stablecoin contract
 [contracts.stablecoin]
 path = "contracts/stablecoin.clar"
 
+# Governance contract for protocol management
+[contracts.governance]
+path = "contracts/governance.clar"
+depends_on = ["stablecoin"]
+
+# Development network configuration
 [devnet]
-# Optional settings for testing or devnet deployment
+name = "devnet"
+stx_address = "ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM"
+btc_address = "mqVnk6NPRdhntvfm4hh9vvjiRkFDUuSYsH"
+port = 20443
+
+# Additional devnet accounts for testing
+[devnet.accounts.deployer]
+mnemonic = "twice kind fence tip hidden tilt action fragile skin nothing glory cousin green tomorrow spring wrist shed math olympic multiply hip blue scout claw"
+balance = 1000000000000000
+
+[devnet.accounts.wallet_1]
+mnemonic = "sell invite acquire kitten bamboo drastic junk tilt towards congress weird joint inherit contract stool absorb brush unsure bird drama soft evidence mutual over"
+balance = 1000000000000000
+
+[devnet.accounts.wallet_2]
+mnemonic = "hold excess usual excess ring elephant install account glad dry fragile donkey gaze humble truck breeze nation gasp vacuum limb head keep delay hospital"
+balance = 1000000000000000
+
+[devnet.accounts.wallet_3]
+mnemonic = "board list obtain sugar hour worth raven scout denial thunder horse logic fury scorpion fold genuine phrase wealth news aim below celery when cabin"
+balance = 1000000000000000
+
+# Testing configuration
+[testing]
+timeout = 30000
