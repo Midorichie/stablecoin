@@ -1,0 +1,9 @@
+[project]
+name = "stablecoin"
+clarity_version = "1.0.0"
+
+[contracts.stablecoin]
+path = "contracts/stablecoin.clar"
+
+[devnet]
+# Optional settings for testing or devnet deployment
